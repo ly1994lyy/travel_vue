@@ -1,16 +1,23 @@
 <template>
-  <div class="banner">
-    <img class="banner-img" src="//img1.qunarzz.com/sight/p0/201401/06/3fbbddda915cb7637439d484440d36be.jpg_600x330_0affc9e8.jpg">
-    <div class="banner-info">
-      <div class="banner-title">杭州乐园(AAAA景区)</div>
-      <div class="banner-number"><span class="iconfont banner-icon">&#xe6ee;</span>16</div>
+  <div>
+    <div class="banner">
+      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/201401/06/3fbbddda915cb7637439d484440d36be.jpg_600x330_0affc9e8.jpg">
+      <div class="banner-info">
+        <div class="banner-title">杭州乐园(AAAA景区)</div>
+        <div class="banner-number"><span class="iconfont banner-icon">&#xe6ee;</span>16</div>
+      </div>
     </div>
+    <common-gallary></common-gallary>
   </div>
 </template>
 
 <script>
+import CommonGallary from 'common/gallary/Gallary.vue'
 export default {
-  name: 'DetailBanner'
+  name: 'DetailBanner',
+  components: {
+    CommonGallary
+  }
 }
 </script>
 
