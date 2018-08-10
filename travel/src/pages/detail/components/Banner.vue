@@ -1,24 +1,31 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img class="banner-img" src="//img1.qunarzz.com/sight/p0/201401/06/3fbbddda915cb7637439d484440d36be.jpg_600x330_0affc9e8.jpg">
+      <img class="banner-img" :src="bannerImg">
       <div class="banner-info">
-        <div class="banner-title">杭州乐园(AAAA景区)</div>
-        <div class="banner-number"><span class="iconfont banner-icon">&#xe6ee;</span>16</div>
+        <div class="banner-title">{{this.sightName}}</div>
+        <div class="banner-number"><span class="iconfont banner-icon">&#xe6ee;</span>{{this.bannerImgs.length}}</div>
       </div>
     </div>
-    <common-gallary :imags="imags" v-show="showGallary" @close='handleGallaryClose'></common-gallary>
+    <fade-animation>
+      <common-gallary :imags="bannerImgs" v-show="showGallary" @close='handleGallaryClose'></common-gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallary from 'common/gallary/Gallary.vue'
+import FadeAnimation from 'common/fade/FadeAnimation.vue'
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
   data () {
     return {
-      showGallary: false,
-      imags: ['http://img1.qunarzz.com/sight/p0/201401/06/3fbbddda915cb7637439d484440d36be.jpg_r_800x800_c7fa6286.jpg']
+      showGallary: false
     }
   },
   methods: {
@@ -30,7 +37,8 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   }
 }
 </script>
